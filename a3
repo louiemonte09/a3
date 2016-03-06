@@ -1,0 +1,141 @@
+	/** Return Node number h of this list
+	 * (the first node is number 0, the second is number 1, etc.)
+	 * Throw an IndexOutOfBoundsException if h < 0 or h >= size of the list.
+	 * This method should take time proportional to min(h, size - h). */
+	Node getNode(int h) {// no access modifier. Accessible (only) in package
+		// TODO item #6
+		// This large helper method is used more than any other helper method
+		// It is used by other public methods or for testing.
+		// Note that there are two ways to get to a node: from the head or from the tail.
+		// This MUST use the fastest way for index.
+		// (If h is exactly the middle, then either way is ok.)
+		if (h > 0 && h < size){
+			//put index out of bounds error
+
+
+
+
+			//DONT FORGET
+		}
+		if (h <= size/2){
+			Node NodeGetter= head;
+			while (h > 0){
+				h= h-1;
+				NodeGetter= NodeGetter.succ;
+			}
+			return NodeGetter;
+		}
+		else {
+			Node NodeGetter= tail;
+			h= size - 1 - h;
+			while (h >= 0){
+				h= h-1;
+				NodeGetter= NodeGetter.pred;
+			}
+			return NodeGetter;
+		}
+	}
+
+	/** Return element number h of this list.
+	 * (The first element is number 0, the second is number 1, etc.)
+	 * Throw an IndexOutOfBoundsException if h < 0 or h >= size of the list.
+	 * The time taken should be proportional to min(h, size - h).*/
+	public @Override E get(int h) {
+		// TODO item #7
+		// Rely on helper methods to keep this method small.
+		// Note that the helper method could throw the exception; doesn't
+		// have to be done here.
+		return getNode(h).data;
+	}
+
+	/** Replace element number h of this list by e.
+	 * (The first element is number 0, the second is number 1, etc.)
+	 * Return the value that was previously element number h.
+	 * Throw an IndexOutOfBoundsException if h < 0 or h >= size of the list.
+	 * The time taken should be proportional to min(h, size - h). */
+	public @Override E set(int h, E element) {
+		// TODO item #8
+		// Rely on helper methods to keep this method small.
+		// Note that a helper method could throw the exception; doesn't
+		// have to be done here.
+		return get(h);
+		getNode(h).data= element;
+		
+	}
+
+	/** Insert element in a new node at the beginning of the list and
+	 * return the new node.
+	 * This operation must take constant time. */
+	Node prepend(E element) {// no access modifier. Accessible (only) in package
+		// TODO item #9
+		// This mid-size helper function will be used by other methods
+		return null;
+	}
+
+	/** Insert element into a new node before Node node and return the new node.
+	 * Precondition: node must be a Node of this list; it must not be null.
+	 * This operation must take constant time.  */
+	Node insertBefore(E element, Node node) {// no access modifier. Accessible (only) in package
+		// TODO item #10
+		// This mid-size helper function will be used by other methods.
+		// Do NOT test whether node is actually a Node of this list because
+		// it will then not be a constant-time operation.
+		return null;
+	}
+
+	/**  Insert element in a new node of the list, making it number h.
+	 * The element that was number h becomesnumber h+1, the element that was number
+	 * h+1 becomes number h+2, and so on. 
+	 * Throw an IndexOutOfBoundsException if index < 0 or h > size of the list.
+	 * Note that if h = size of the list, this means to append element.
+	 * This operation must take time proportional to min (h, size - index). */
+	public @Override void add(int h, E element) {
+		// TODO item #11
+		// Note that if h = size of the list, this operation appends element to the list.
+		// Rely on helper methods to keep this method small.
+		// Note that a helper method could throw the exception; it doesn't
+		// have to be done here.
+	}
+
+	/** Remove node from this list and return its data.
+	 * Precondition: node must be a Node of this list; it must not be null.
+	 * Postcondition: To prevent memory leaks, every field of node should be set to null. */
+	E removeNode(Node node) {// no access modifier. Accessible (only) in package
+		// TODO item #12
+		// This is the largest helper method
+		return null;
+	}
+
+	/** Remove element number h from the list and return the element that was removed.
+	 * Throw an IndexOutOfBoundsException if h < 0 or h >= size of the list. */
+	public @Override E remove(int h) {
+		// TODO item #13
+		// Rely on helper methods to keep this method small.
+		// Note that a helper method could throw the exception; it doesn't
+		// have to be done here.
+		return null;
+	}
+
+	/*********************/
+
+	/** An instance is a node of this list. */
+	class Node {// no access modifier. Accessible (only) in package
+		/** Predecessor of this node on list (null if this is the first node). */
+		Node pred; // no access modifier. Accessible (only) in package
+
+		/** The data in this element. */
+		E data; // no access modifier. Accessible (only) in package
+
+		/** Successor of this node on list. (null if is the last node). */
+		Node succ; // no access modifier. Accessible (only) in package
+
+		/** Constructor: an instance with predecessor node p (can be null),
+		 * successor node s (can be null), and data e. */
+		Node(Node p, E e, Node s) {// no access modifier. Accessible (only) in package
+			pred= p;
+			succ= s;
+			data= e;
+		}
+	}
+}
+
